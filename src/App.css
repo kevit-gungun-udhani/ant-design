@@ -1,0 +1,26 @@
+#siteHeader {
+  display: flex;
+  background-color: red;
+  padding: 0px;
+  justify-content: space-between;
+}
+#siteHeader .siteHeaderMenu {
+  display: flex;
+  background-color: black;
+}
+#siteHeader .siteHeaderMenu .siteHeaderLogo {
+  background-color: aqua;
+  text-align: center;
+}
+#siteHeader .siteHeaderMenu .organizationDropdown {
+  display: flex;
+  flex-direction: column;
+  background-color: #16e220;
+}
+#siteHeader .siteHeaderMenu .farmDropdown {
+  background-color: #8b8b34;
+}
+#siteHeader .siteHeaderMenu .seasonDropdown {
+  background-color: #c7c721;
+}
+/*# sourceMappingURL=App.css.map */
