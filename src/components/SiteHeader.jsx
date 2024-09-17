@@ -1,71 +1,30 @@
 import { ProductFilled } from "@ant-design/icons";
 import { Col, Layout, Row } from "antd";
-import { DownOutlined } from "@ant-design/icons";
-import { Dropdown, Space } from "antd";
+import { HeaderDropdown } from "./HeaderDropdown";
 const { Header } = Layout;
 
-
-const items1 = ["1", "2", "3"].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
-
-const items = [
-  {
-    label: <a href="https://www.antgroup.com">1st menu item</a>,
-    key: "0",
-  },
-  {
-    label: <a href="https://www.aliyun.com">2nd menu item</a>,
-    key: "1",
-  },
-  {
-    type: "divider",
-  },
-  {
-    label: "3rd menu item",
-    key: "3",
-  },
-];
+// const items1 = ['1', '2', '3'].map((key) => ({
+//   key,
+//   label: `nav ${key}`,
+// }));
 
 export const SiteHeader = () => {
   return (
     <Header id="siteHeader">
       <Row>
         <Col>
-          <Row>
-            <Col>
+          <Row className="col-1-row">
+            <Col span={3}>
               <ProductFilled />
             </Col>
-            <Col>
-              <Dropdown menu={{ items }} trigger={["click"]}>
-                <a onClick={(e) => e.preventDefault()}>
-                  <Space>
-                    Click me
-                    <DownOutlined />
-                  </Space>
-                </a>
-              </Dropdown>
+            <Col span={2}>
+              <HeaderDropdown />
             </Col>
-            <Col>
-              <Dropdown menu={{ items }} trigger={["click"]}>
-                <a onClick={(e) => e.preventDefault()}>
-                  <Space>
-                    Click me
-                    <DownOutlined />
-                  </Space>
-                </a>
-              </Dropdown>
+            <Col span={3}>
+              <HeaderDropdown />
             </Col>
-            <Col>
-              <Dropdown menu={{ items }} trigger={["click"]}>
-                <a onClick={(e) => e.preventDefault()}>
-                  <Space>
-                    Click me
-                    <DownOutlined />
-                  </Space>
-                </a>
-              </Dropdown>
+            <Col span={2}>
+              <HeaderDropdown />
             </Col>
           </Row>
         </Col>
