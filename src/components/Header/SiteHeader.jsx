@@ -1,7 +1,10 @@
-import { BellOutlined, ProductFilled, SaveOutlined } from "@ant-design/icons";
-import { Avatar, Col, Divider, Image, Layout, Row,  } from "antd";
-import { HeaderDropdown } from "./HeaderDropdown";
-import image from '../assets/download.png';
+import { BellOutlined, ProductFilled, SaveOutlined } from '@ant-design/icons';
+import { Avatar, Button, Col, Divider, Image, Layout, Row } from 'antd';
+import { HeaderDropdown } from './HeaderDropdown';
+import image from '../../assets/download.png';
+import { NotificationModal } from './NotificationModal';
+import { useState } from 'react';
+
 const { Header } = Layout;
 const items = [
   {
@@ -60,7 +63,26 @@ const items1 = [
   },
 ];
 
+const item3 = [
+  {
+    description:
+      'The Manual 79da9784 management zones have been created for field 1.  You can now check it and create for prescription',
+    time: '2 days ago(Sep-30, 2024, 3:49PM)',
+  },
+];
+
+
 export const SiteHeader = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
     <Header id="siteHeader">
       <Row className="row-1">
@@ -89,7 +111,15 @@ export const SiteHeader = () => {
               <SaveOutlined />
             </Col>
             <Col>
-              <BellOutlined />
+              <Button type="primary" onClick={showModal}>
+                <BellOutlined />
+              </Button>
+              <NotificationModal
+                isModalOpen={isModalOpen}
+                handleOk={handleOk}
+                handleCancel={handleCancel}
+                items={item3}
+              />
             </Col>
             <Divider type="vertical" />
             <Col span={5}>
@@ -101,3 +131,13 @@ export const SiteHeader = () => {
     </Header>
   );
 };
+
+
+//  <div>
+//    <p>
+//      The Manual 79da9784 management zones have been created for field 1. You can
+//      now check it and create for prescription
+//    </p>
+//    <p>2 days ago(sep 13, 2024, 3:49PM)</p>
+//    <Button>Go to the mngt zone list</Button>
+//  </div>

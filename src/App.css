@@ -48,4 +48,13 @@ li[data-menu-id="rc-menu-uuid-63152-4-tmp-0"] > span {
   margin-bottom: 0px !important;
   margin-top: 5px;
 }
+.ant-modal-mask {
+  background-color: transparent !important;
+}
+.ant-modal {
+  margin: 0px 0px 0px 55%;
+}
+.ant-modal-content {
+  box-shadow: none;
+}
 /*# sourceMappingURL=App.css.map */

@@ -1,7 +1,7 @@
 import React from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { SiteHeader } from './components/SiteHeader';
+import { SiteHeader } from './components/Header/SiteHeader';
 const { Content, Sider } = Layout;
 import './App.css'
 
