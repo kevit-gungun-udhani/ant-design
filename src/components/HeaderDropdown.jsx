@@ -1,28 +1,43 @@
-import { Dropdown, Space, Statistic } from "antd";
-import { DownOutlined } from "@ant-design/icons";
+import { Avatar, Divider, Dropdown, Menu, Statistic } from 'antd';
+import { useState } from 'react';
 
-const items = [
-  {
-    label: "1st menu item",
-    key: "0",
-  },
-  {
-    label: "item",
-    key: "1",
-  },
-  {
-    type: "divider",
-  },
-  {
-    label: "3rd menu item",
-    key: "3",
-  },
-];
 
-export const HeaderDropdown = () => {
+
+export const HeaderDropdown = ({ title, items = [] }) => {
+  const [key, setKey] = useState('');
+  const index = items.findIndex((item) => item.key === key);
+  const label = index >= 0 ? items[index].label : '';
+
   return (
-    <Dropdown menu={{ items }} trigger={["hover"]}>
-      <Statistic title="organiation" value={'Workspace'} valueStyle={{fontSize: 'small', fontWeight: 'bold'}}/>
-    </Dropdown>
+    <>
+      <Dropdown
+        trigger={['click']}
+        dropdownRender={() => (
+          <div className="dropdown">
+            <div className="dropdown-title">{title}</div>
+            <Menu
+              items={items}
+              onClick={({ key }) => {
+                setKey(key);
+              }}
+            />
+            {title === 'Organization' && (
+              <>
+                <Divider />
+                <a className="dropdown-link">Go to Organization</a>
+              </>
+            )}
+          </div>
+        )}
+      >
+        <div>
+          <Statistic
+            title={title}
+            value={`${label}`}
+            valueStyle={{ fontSize: 'small', fontWeight: 'bold' }}
+          />
+        </div>
+      </Dropdown>
+    </>
   );
 };
