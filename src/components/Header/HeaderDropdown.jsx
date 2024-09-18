@@ -1,4 +1,4 @@
-import { Avatar, Divider, Dropdown, Menu, Statistic } from 'antd';
+import { Divider, Dropdown, Menu, Statistic } from 'antd';
 import { useState } from 'react';
 
 
@@ -7,7 +7,7 @@ export const HeaderDropdown = ({ title, items = [] }) => {
   const [key, setKey] = useState('');
   const index = items.findIndex((item) => item.key === key);
   const label = index >= 0 ? items[index].label : '';
-
+  
   return (
     <>
       <Dropdown

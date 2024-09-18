@@ -57,4 +57,13 @@ li[data-menu-id="rc-menu-uuid-63152-4-tmp-0"] > span {
 .ant-modal-content {
   box-shadow: none;
 }
+.content-row-1 {
+  background-color: #efefef;
+  padding: 15px;
+  font-size: large;
+  font-weight: 700;
+}
+#map {
+  height: 60px;
+}
 /*# sourceMappingURL=App.css.map */
