@@ -66,4 +66,43 @@ li[data-menu-id="rc-menu-uuid-63152-4-tmp-0"] > span {
 #map {
   height: 60px;
 }
+.content-col-1 {
+  padding: 2rem;
+}
+.content-col-1-row-1 {
+  margin-top: 2.5%;
+  border: #efefef;
+}
+.content-col-1-row-2 {
+  margin-top: 2.5%;
+  background-color: #ffffff;
+  padding: 2%;
+  border: #efefef;
+}
+.createZoneButton {
+  background-color: #1cb62c;
+  color: #ffffff;
+}
+.content-field {
+  background-color: #ffffff;
+}
+.ant-list-item {
+  padding: 0px !important;
+}
+.ant-divider-horizontal {
+  margin: 14px 0px;
+}
+.ant-list-item-meta {
+  margin: 2.2% 0px;
+}
+.ant-menu-item:hover {
+  border-left: solid #ffffff;
+  border-width: 2px;
+}
+.profileModal {
+  margin: 0px 0px 0px 80%;
+}
+.ant-modal-content {
+  box-shadow: none;
+}
 /*# sourceMappingURL=App.css.map */

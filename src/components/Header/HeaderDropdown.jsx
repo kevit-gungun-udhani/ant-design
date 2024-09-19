@@ -4,9 +4,8 @@ import { useState } from 'react';
 
 
 export const HeaderDropdown = ({ title, items = [] }) => {
-  const [key, setKey] = useState('');
-  const index = items.findIndex((item) => item.key === key);
-  const label = index >= 0 ? items[index].label : '';
+  const [key, setKey] = useState('2');
+  const index = items.find((item) => item.key === key);
   
   return (
     <>
@@ -20,6 +19,7 @@ export const HeaderDropdown = ({ title, items = [] }) => {
               onClick={({ key }) => {
                 setKey(key);
               }}
+              defaultSelectedKeys={['2']}
             />
             {title === 'Organization' && (
               <>
@@ -33,7 +33,7 @@ export const HeaderDropdown = ({ title, items = [] }) => {
         <div>
           <Statistic
             title={title}
-            value={`${label}`}
+            value={`${ index ? index.label : 'Manish Workspace'}`}
             valueStyle={{ fontSize: 'small', fontWeight: 'bold' }}
           />
         </div>

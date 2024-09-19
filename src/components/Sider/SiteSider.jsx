@@ -17,21 +17,13 @@ const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
     return {
       key: `sub${key}`,
       icon: React.createElement(icon),
-      label: `subnav ${key}`,
-      children: new Array(4).fill(null).map((_, j) => {
-        const subKey = index * 4 + j + 1;
-        return {
-          key: subKey,
-          label: `option${subKey}`,
-          
-        };
-      }),
+      label: 'Prescription'
     };
   }
 );
 export const SiteSider = () => {
   const [collapsed, setCollapsed] = useState(true);
-
+  
   return (
     <ConfigProvider
       theme={{
@@ -48,7 +40,6 @@ export const SiteSider = () => {
         <div className="demo-logo-vertical" />
         <Menu
           theme="dark"
-          defaultSelectedKeys={['1']}
           mode="inline"
           items={items2}
         />

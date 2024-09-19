@@ -12,6 +12,7 @@ export const NotificationModal = ({
       open={isModalOpen}
       onOk={handleOk}
       onCancel={handleCancel}
+      footer={null}
     >
       <Divider />
       <List
@@ -22,11 +23,11 @@ export const NotificationModal = ({
             <List.Item.Meta
               avatar={<Avatar>PP</Avatar>}
               description={
-                <div>
-                  <p>{item.description}</p>
+                <>
+                  <span>{item.description}</span>
                   <p>{item.time}</p>
-                  <Button>Go to the mngt list</Button>
-                </div>
+                  <Button className='createZoneButton'>Go to the mngt list</Button>
+                </>
               }
             ></List.Item.Meta>
           </List.Item>

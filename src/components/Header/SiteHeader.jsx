@@ -1,76 +1,109 @@
-import { BellOutlined, ProductFilled, SaveOutlined } from '@ant-design/icons';
-import { Avatar, Button, Col, Divider, Image, Layout, Row } from 'antd';
-import { HeaderDropdown } from './HeaderDropdown';
-import image from '../../assets/download.png';
-import { NotificationModal } from './NotificationModal';
-import { useState } from 'react';
+import { BellOutlined, ProductFilled, SaveOutlined } from "@ant-design/icons";
+import { Avatar, Button, Col, Divider, Image, Layout, Row } from "antd";
+import { HeaderDropdown } from "./HeaderDropdown";
+import image from "../../assets/download.png";
+import { NotificationModal } from "./NotificationModal";
+import { useState } from "react";
+import { ProfileModal } from "./ProfileModal";
 
 const { Header } = Layout;
 const items = [
   {
-    key: '1',
+    key: "1",
     icon: <Avatar>0</Avatar>,
-    label: '02217192',
+    label: "02217192",
   },
   {
-    key: '2',
+    key: "2",
     icon: <Avatar>AU</Avatar>,
-    label: 'Agro CWPLA-UA',
+    label: "Agro CWPLA-UA",
   },
 
   {
-    key: '3',
+    key: "3",
     icon: <Avatar>BO</Avatar>,
-    label: 'Brazil Org',
+    label: "Brazil Org",
   },
 
   {
-    key: '4',
+    key: "4",
     icon: <Avatar>GO</Avatar>,
-    label: 'Germany Org',
+    label: "Germany Org",
   },
   {
-    key: '5',
+    key: "5",
     icon: <Avatar>AO</Avatar>,
-    label: 'Argentina Org',
+    label: "Argentina Org",
   },
 ];
 
 const items1 = [
   {
-    label: '2025/2026',
-    key: '1',
+    label: "2025/2026",
+    key: "1",
   },
   {
-    label: '2025/2026',
-    key: '2',
+    label: "2025/2026",
+    key: "2",
   },
   {
-    label: '2025/2026',
-    key: '3',
+    label: "2025/2026",
+    key: "3",
   },
   {
-    label: '2025/2026',
-    key: '4',
+    label: "2025/2026",
+    key: "4",
   },
   {
-    label: '2025/2026',
-    key: '5',
+    label: "2025/2026",
+    key: "5",
   },
   {
-    label: '2025/2026',
-    key: '6',
+    label: "2025/2026",
+    key: "6",
   },
 ];
 
 const item3 = [
   {
     description:
-      'The Manual 79da9784 management zones have been created for field 1.  You can now check it and create for prescription',
-    time: '2 days ago(Sep-30, 2024, 3:49PM)',
+      "The Manual 79da9784 management zones have been created for field 1.  You can now check it and create for prescription",
+    time: "2 days ago(Sep-30, 2024, 3:49PM)",
+  },
+  {
+    description:
+      "The Manual 79da9784 management zones have been created for field 1.  You can now check it and create for prescription",
+    time: "2 days ago(Sep-30, 2024, 3:49PM)",
+  },
+  {
+    description:
+      "The Manual 79da9784 management zones have been created for field 1.  You can now check it and create for prescription",
+    time: "2 days ago(Sep-30, 2024, 3:49PM)",
   },
 ];
 
+const item4 = [
+  {
+    key: '1',
+    label: 'English(USA)'
+  },
+  {
+    key: '2',
+    label: 'Portugal'
+  },
+  {
+    key: '3',
+    label: 'Polski'
+  },
+  {
+    key: '4',
+    label: 'Mangyar'
+  },
+  {
+    key: '5',
+    label: 'Italiano'
+  }
+]
 
 export const SiteHeader = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -83,6 +116,18 @@ export const SiteHeader = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const showProfileModal = () => {
+    setIsProfileModalOpen(true);
+  };
+  const handleProfileOk = () => {
+    setIsProfileModalOpen(false);
+  };
+  const handleProfileCancel = () => {
+    setIsProfileModalOpen(false);
+  };
+
   return (
     <Header id="siteHeader">
       <Row className="row-1">
@@ -111,9 +156,8 @@ export const SiteHeader = () => {
               <SaveOutlined />
             </Col>
             <Col>
-              <Button type="primary" onClick={showModal}>
-                <BellOutlined />
-              </Button>
+              <BellOutlined onClick={showModal} />
+
               <NotificationModal
                 isModalOpen={isModalOpen}
                 handleOk={handleOk}
@@ -123,7 +167,8 @@ export const SiteHeader = () => {
             </Col>
             <Divider type="vertical" />
             <Col span={5}>
-              <Avatar>MA</Avatar>
+              <Avatar onClick={showProfileModal}>MA</Avatar>
+              <ProfileModal isModalOpen={isProfileModalOpen} handleOk={handleProfileOk} handleCancel={handleProfileCancel} items={item4}/>
             </Col>
           </Row>
         </Col>
@@ -131,13 +176,3 @@ export const SiteHeader = () => {
     </Header>
   );
 };
-
-
-//  <div>
-//    <p>
-//      The Manual 79da9784 management zones have been created for field 1. You can
-//      now check it and create for prescription
-//    </p>
-//    <p>2 days ago(sep 13, 2024, 3:49PM)</p>
-//    <Button>Go to the mngt zone list</Button>
-//  </div>
