@@ -136,13 +136,13 @@ export const SiteHeader = () => {
             <Col span={2} className="menu">
               <ProductFilled />
             </Col>
-            <Col span={5}>
+            <Col span={6}>
               <Image src={image} width={110} />
             </Col>
-            <Col span={8}>
+            <Col span={6}>
               <HeaderDropdown title="Organization" items={items} />
             </Col>
-            <Col span={6}>
+            <Col span={5}>
               <HeaderDropdown title="Farm" />
             </Col>
             <Col span={2}>
@@ -157,7 +157,6 @@ export const SiteHeader = () => {
             </Col>
             <Col>
               <BellOutlined onClick={showModal} />
-
               <NotificationModal
                 isModalOpen={isModalOpen}
                 handleOk={handleOk}
